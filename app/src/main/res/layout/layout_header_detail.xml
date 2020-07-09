@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.huyhieu.animationtransaction.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="?actionBarSize"
+    app:layoutDescription="@xml/scene_header_detail"
+    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_stat_name"
+            android:tint="#090C1B"
+            tools:ignore="ContentDescription" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvImgAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="4dp"
+        android:paddingTop="30dp"
+        android:transitionName="imgAvatar"
+        app:cardBackgroundColor="#090C1B"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="10dp">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vayne" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cantarell"
+        android:gravity="center"
+        android:text="Vayne"
+        android:textColor="#090C1B"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:transitionName="txtName" />
+
+
+    <TextView
+        android:id="@+id/txtNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cantarell"
+        android:text="@string/_vayne_1"
+        android:textSize="16sp"
+        android:transitionName="txtNickName" />
+</com.huyhieu.animationtransaction.CollapsibleToolbar>

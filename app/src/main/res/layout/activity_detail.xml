@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:background="#fff">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:background="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="430dp">
+
+        <include layout="@layout/layout_header_detail"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/layout_content_detail" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
