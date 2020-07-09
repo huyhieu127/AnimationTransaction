@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/lnModelBottom"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:translationY="400dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/controlModel"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:rotation="90"
+            android:translationY="380dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toTopOf="@+id/lnModelBottom" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/lnModelBottom"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:translationY="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/controlModel"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:rotation="270"
+            android:translationY="0dp"
+            motion:layout_constraintBottom_toTopOf="@+id/lnModelBottom"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/lnModelBottom" />
+    </ConstraintSet>
+
+    <Transition
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="450">
+        <OnClick
+            motion:clickAction="transitionToStart|transitionToEnd"
+            motion:targetId="@+id/controlModel" />
+    </Transition>
+</MotionScene>

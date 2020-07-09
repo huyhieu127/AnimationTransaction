@@ -1,19 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayoutDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
-    android:background="#fff">
+    app:layoutDescription="@xml/activity_detail_scene">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:background="#FFF"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cdlMain"
         android:layout_width="match_parent"
-        android:layout_height="430dp">
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:fitsSystemWindows="false">
 
-        <include layout="@layout/layout_header_detail"/>
-    </com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:background="#FFF">
 
-    <include layout="@layout/layout_content_detail" />
+            <include layout="@layout/layout_header_detail" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <include layout="@layout/layout_content_detail" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <LinearLayout
+        android:id="@+id/lnModelBottom"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:alpha="0.3"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#E6E6E6" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvModel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_list_detail" />
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/controlModel"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="#0F1B57"
+        android:elevation="20dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_left_arrow"
+        android:tint="#FFF"
+        app:round="25dp" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

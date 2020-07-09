@@ -12,11 +12,11 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(private val data: ArrayList<CharacterModel>) :
+class ItemDetailAdapter(private val data: ArrayList<CharacterModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list_detail, parent, false)
         )
     }
 
@@ -42,20 +42,10 @@ class ItemAdapter(private val data: ArrayList<CharacterModel>) :
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-
                 intent.putExtra("model", characterModel)
-                intent.putExtra("isMain", true)
-
-                val p1 = Pair.create<View, String>(cvImg, "imgAvatar")
-                val p2 = Pair.create<View, String>(name, "txtName")
-                val p3 = Pair.create<View, String>(nickName, "txtNickName")
-                val activityOptions = ActivityOptions.makeSceneTransitionAnimation(
-                    itemView.context as Activity?,
-                    p1,
-                    p2,
-                    p3
-                )
-                (itemView.context as Activity).startActivity(intent, activityOptions.toBundle())
+                itemView.context.startActivity(intent)
+                (itemView.context as Activity).finish()
+                (itemView.context as Activity).overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }
         }
     }

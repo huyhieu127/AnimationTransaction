@@ -1,14 +1,19 @@
 package com.huyhieu.animationtransaction
 
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
+import android.util.Pair
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_list.*
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
