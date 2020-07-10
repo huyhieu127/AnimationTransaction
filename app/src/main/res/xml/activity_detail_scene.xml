@@ -3,53 +3,83 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@id/vBottom">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toBottomOf="parent" />
+        </Constraint>
         <Constraint
-            android:id="@+id/lnModelBottom"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:translationY="400dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
-        <Constraint
-            android:id="@+id/controlModel"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:id="@+id/cvArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
             android:rotation="90"
-            android:translationY="380dp"
-            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toTopOf="@id/vBottom"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintBottom_toTopOf="@+id/lnModelBottom" />
+            motion:layout_constraintStart_toStartOf="@+id/vBottom" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/vBottom">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent" />
+        </Constraint>
         <Constraint
-            android:id="@id/lnModelBottom"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:translationY="0dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
-
-        <Constraint
-            android:id="@+id/controlModel"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:id="@+id/cvArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:rotation="270"
-            android:translationY="0dp"
-            motion:layout_constraintBottom_toTopOf="@+id/lnModelBottom"
+            motion:layout_constraintBottom_toTopOf="@id/vBottom"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="@id/lnModelBottom" />
+            motion:layout_constraintStart_toStartOf="@+id/vBottom"
+            motion:layout_constraintTop_toTopOf="@id/vBottom" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/full_layout">
+        <Constraint android:id="@id/vBottom">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?actionBarSize"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/cvArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:rotation="270"
+            motion:layout_constraintBottom_toTopOf="@id/vBottom"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="@+id/vBottom"
+            motion:layout_constraintTop_toTopOf="@id/vBottom" />
     </ConstraintSet>
 
     <Transition
         motion:constraintSetEnd="@id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="450">
-        <OnClick
-            motion:clickAction="transitionToStart|transitionToEnd"
-            motion:targetId="@+id/controlModel" />
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/vBottom"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/full_layout"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="450">
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/vBottom"
+            motion:touchAnchorSide="bottom" />
     </Transition>
 </MotionScene>

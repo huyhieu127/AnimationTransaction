@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/ic_stat_name"
-            android:tint="#0F1B57"
+            android:tint="@color/colorAccent"
             tools:ignore="ContentDescription" />
     </androidx.cardview.widget.CardView>
 
@@ -58,7 +58,7 @@
         android:fontFamily="@font/cantarell"
         android:gravity="center"
         android:text="Vayne"
-        android:textColor="#0F1B57"
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:textStyle="bold"
         android:transitionName="txtName" />

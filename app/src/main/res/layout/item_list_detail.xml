@@ -17,13 +17,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:transitionName="txt">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvImg"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             app:cardCornerRadius="100dp">
 
@@ -52,8 +52,8 @@
                 android:fontFamily="@font/cantarell"
                 android:gravity="center"
                 android:text="Vayne"
-                android:textColor="#0F1B57"
-                android:textSize="20sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -66,7 +66,7 @@
                 android:gravity="center"
                 android:maxLines="2"
                 android:text="@string/_vayne_1"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

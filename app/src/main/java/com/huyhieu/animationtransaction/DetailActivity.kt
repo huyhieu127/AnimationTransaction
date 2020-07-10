@@ -1,20 +1,15 @@
 package com.huyhieu.animationtransaction
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
-import android.view.DragEvent
-import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_content_detail.*
 import kotlinx.android.synthetic.main.layout_header_detail.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(){
 
     private var isMain = false
 
@@ -22,7 +17,25 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppThemeDark)
         setContentView(R.layout.activity_detail)
+        getDataFromBundle()
+        animContent()
+        initRcv()
+        cvBack.setOnClickListener { onBackPressed() }
+        cdlMain.setOnClickListener { motionLayoutDetail.transitionToStart() }
+        nestContent.setOnScrollChangeListener { _, _, _, _, _ ->
+            motionLayoutDetail.setTransitionDuration(250)
+            motionLayoutDetail.transitionToStart() }
+        cvArrow.setOnClickListener {
+            motionLayoutDetail.setTransitionDuration(450)
+            if (motionLayoutDetail.progress > 0.5f) {
+                motionLayoutDetail.transitionToStart()
+            } else {
+                motionLayoutDetail.transitionToEnd()
+            }
+        }
+    }
 
+    private fun getDataFromBundle() {
         val characterModel = intent.extras?.getParcelable<CharacterModel>("model")
         if (characterModel != null) {
             imgAvatar.setImageResource(characterModel.img)
@@ -30,15 +43,16 @@ class DetailActivity : AppCompatActivity() {
         txtName.text = characterModel?.name
         txtNickName.text = characterModel?.nickName
         txtContent.text = characterModel?.content
-
         isMain = intent.extras?.getBoolean("isMain",false)!!
+    }
 
-        cvBack.setOnClickListener { onBackPressed() }
-
+    private fun animContent() {
         val animation = AnimationUtils.loadAnimation(this, R.anim.slide_up)
         animation.duration = 500
         txtContent.startAnimation(animation)
+    }
 
+    private fun initRcv() {
         val list = ArrayList<CharacterModel>()
 
         list.add(CharacterModel(R.drawable.vayne, "Vayne", getString(R.string._vayne_1), getString(R.string._vayne)))
@@ -53,8 +67,6 @@ class DetailActivity : AppCompatActivity() {
         rcvModel.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rcvModel.setHasFixedSize(true)
         rcvModel.adapter = adapter
-        cdlMain.setOnClickListener { motionLayoutDetail.transitionToStart() }
-        nestContent.setOnScrollChangeListener { _, _, _, _, _ -> motionLayoutDetail.transitionToStart() }
     }
 
     override fun onBackPressed() {
