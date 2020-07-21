@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.customs
 
 import android.content.Context
 import android.util.AttributeSet

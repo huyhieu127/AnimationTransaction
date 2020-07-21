@@ -1,10 +1,12 @@
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.activities
 
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.appbar.AppBarLayout
+import com.huyhieu.animationtransaction.R
+import com.huyhieu.animationtransaction.adapters.ItemDetailAdapter
+import com.huyhieu.animationtransaction.models.CharacterModel
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_content_detail.*
 import kotlinx.android.synthetic.main.layout_header_detail.*
@@ -47,7 +49,9 @@ class DetailActivity : AppCompatActivity(){
     }
 
     private fun animContent() {
-        val animation = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        val animation = AnimationUtils.loadAnimation(this,
+            R.anim.slide_up
+        )
         animation.duration = 500
         txtContent.startAnimation(animation)
     }
@@ -55,15 +59,58 @@ class DetailActivity : AppCompatActivity(){
     private fun initRcv() {
         val list = ArrayList<CharacterModel>()
 
-        list.add(CharacterModel(R.drawable.vayne, "Vayne", getString(R.string._vayne_1), getString(R.string._vayne)))
-        list.add(CharacterModel(R.drawable.thresh, "Thresh", getString(R.string._thresh_1), getString(R.string._thresh)))
-        list.add(CharacterModel(R.drawable.yasuo, "Yasuo", getString(R.string._yasuo_1), getString(R.string._yasuo) ))
+        list.add(
+            CharacterModel(
+                R.drawable.vayne,
+                "Vayne",
+                getString(R.string._vayne_1),
+                getString(R.string._vayne)
+            )
+        )
+        list.add(
+            CharacterModel(
+                R.drawable.thresh,
+                "Thresh",
+                getString(R.string._thresh_1),
+                getString(R.string._thresh)
+            )
+        )
+        list.add(
+            CharacterModel(
+                R.drawable.yasuo,
+                "Yasuo",
+                getString(R.string._yasuo_1),
+                getString(R.string._yasuo)
+            )
+        )
 
-        list.add(CharacterModel(R.drawable.vayne, "Vayne1", getString(R.string._vayne_1), getString(R.string._vayne)))
-        list.add(CharacterModel(R.drawable.thresh, "Thresh1", getString(R.string._thresh_1), getString(R.string._thresh)))
-        list.add(CharacterModel(R.drawable.yasuo, "Yasuo1", getString(R.string._yasuo_1), getString(R.string._yasuo) ))
+        list.add(
+            CharacterModel(
+                R.drawable.vayne,
+                "Vayne1",
+                getString(R.string._vayne_1),
+                getString(R.string._vayne)
+            )
+        )
+        list.add(
+            CharacterModel(
+                R.drawable.thresh,
+                "Thresh1",
+                getString(R.string._thresh_1),
+                getString(R.string._thresh)
+            )
+        )
+        list.add(
+            CharacterModel(
+                R.drawable.yasuo,
+                "Yasuo1",
+                getString(R.string._yasuo_1),
+                getString(R.string._yasuo)
+            )
+        )
 
-        val adapter = ItemDetailAdapter(list)
+        val adapter =
+            ItemDetailAdapter(list)
         rcvModel.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rcvModel.setHasFixedSize(true)
         rcvModel.adapter = adapter

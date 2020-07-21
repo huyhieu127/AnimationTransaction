@@ -1,9 +1,7 @@
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.adapters
 
 import android.app.Activity
-import android.app.ActivityOptions
 import android.content.Intent
-import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.huyhieu.animationtransaction.models.CharacterModel
+import com.huyhieu.animationtransaction.activities.DetailActivity
+import com.huyhieu.animationtransaction.R
 
 class ItemDetailAdapter(private val data: ArrayList<CharacterModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -45,7 +46,10 @@ class ItemDetailAdapter(private val data: ArrayList<CharacterModel>) :
                 intent.putExtra("model", characterModel)
                 itemView.context.startActivity(intent)
                 (itemView.context as Activity).finish()
-                (itemView.context as Activity).overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                (itemView.context as Activity).overridePendingTransition(
+                    R.anim.fade_in,
+                    R.anim.fade_out
+                )
             }
         }
     }

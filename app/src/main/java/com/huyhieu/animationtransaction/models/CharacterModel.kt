@@ -1,4 +1,4 @@
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.models
 
 import android.os.Parcel
 import android.os.Parcelable

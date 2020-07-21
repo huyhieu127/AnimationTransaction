@@ -1,4 +1,4 @@
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.adapters
 
 import android.app.Activity
 import android.app.ActivityOptions
@@ -11,6 +11,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.huyhieu.animationtransaction.models.CharacterModel
+import com.huyhieu.animationtransaction.activities.DetailActivity
+import com.huyhieu.animationtransaction.R
 
 class ItemAdapter(private val data: ArrayList<CharacterModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -1,4 +1,4 @@
-package com.huyhieu.animationtransaction
+package com.huyhieu.animationtransaction.utils
 
 import android.app.Activity
 import android.graphics.BitmapFactory
