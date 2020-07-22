@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <ImageView
@@ -31,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        app:cardCornerRadius="10dp">
+        app:cardBackgroundColor="#E8F5E9"
+        app:cardCornerRadius="7dp">
 
         <TextView
             android:fontFamily="@font/cantarell"
@@ -40,7 +40,8 @@
             android:gravity="center"
             android:paddingVertical="10dp"
             android:text="@string/view_pager_to_dismiss"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textColor="#4CAF50"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.huyhieu.animationtransaction.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,5 +46,10 @@ class MainActivity : AppCompatActivity() {
         rcv.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false)
         rcv.setHasFixedSize(true)
         rcv.adapter = adapter
+
+        cvViewPager.setOnClickListener {
+            startActivity(Intent(this, CustomRecyclerViewActivity::class.java))
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
     }
 }

@@ -50,7 +50,7 @@ class DetailActivity : AppCompatActivity(){
 
     private fun animContent() {
         val animation = AnimationUtils.loadAnimation(this,
-            R.anim.slide_up
+            R.anim.slide_down
         )
         animation.duration = 500
         txtContent.startAnimation(animation)
